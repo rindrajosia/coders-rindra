@@ -33,7 +33,7 @@ export const Typography = ({
 ) => {
 
   let variantStyle: string = "",
-      colorStyle = "";
+      colorStyle: string = "";
 
   switch (variant) {
     case 'display':
