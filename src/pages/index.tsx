@@ -1,6 +1,7 @@
 import { Seo } from '@/ui/components/seo/seo'
 import { Typography } from '@/ui/design-system/typography/typography'
 import { Button } from '@/ui/design-system/button/button'
+import { RiRegisteredLine } from "react-icons/ri";
 
 export default function Home() {
   return (
@@ -12,12 +13,14 @@ export default function Home() {
             <Button variant="secondary">secondary</Button>
             <Button variant="outline">outline</Button>
             <Button variant="disabled">disabled</Button>
+            <Button size="small" iconPosition="left" icon={{icon: RiRegisteredLine }}>secondary</Button>
         </div>
         <div className="flex item-center gap-4 py-10">
             <Button size="small">accent</Button>
             <Button size="small" variant="secondary">secondary</Button>
             <Button size="small" variant="outline">outline</Button>
             <Button size="small" variant="disabled">disabled</Button>
+            <Button size="small" variant="ico" icon={{icon: RiRegisteredLine }}/>
         </div>
         <div className="flex item-center gap-4 py-10">
             <Button size="large">accent</Button>
