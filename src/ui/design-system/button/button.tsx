@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 import { IconProps } from '@/types/iconProps';
+import { Spinner } from "@/ui/design-system/spinner/spinner";
 
 interface Props {
   size?: "small" | "medium" | "large";
   variant?: "accent" | "secondary" | "outline" | "disabled" | "ico";
-  icon?: any;
+  icon?: IconProps;
   iconTheme?: "accent" | "secondary" | "gray";
   iconPosition?: "left" | "right";
   disabled?: boolean;
@@ -97,11 +98,23 @@ export const Button = ({
           className={clsx(
             variantStyle,
             sizeStyle,
-            icoSize
+            icoSize,
+            isLoading && "cursor-wait",
+            "relative"
           )}
           onClick={() => console.log("click")}
           disabled={disabled}
           >
+          {isLoading && (
+            <div className={clsx("absolute inset-0 flex items-center justify-center")}>
+              {variant === "ico" || variant ==="accent" ?
+                <Spinner size={"small"} variant={"white"}/> :
+                <Spinner size={"small"}/>
+              }
+            </div>
+          )}
+
+          <div className={clsx(isLoading && "invisible")}>
             {icon && variant === "ico" ? (
                   <icon.icon size={icoSize}/>
               ) :
@@ -115,6 +128,9 @@ export const Button = ({
                   )}
               </div>
             }
+          </div>
+
+
         </button>
     </>
 
